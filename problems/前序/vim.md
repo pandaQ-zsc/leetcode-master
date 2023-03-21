@@ -62,7 +62,7 @@ IDE那么很吃内存，打开个IDE卡半天，用VIM就很轻便了，秒开�
 
 来感受一下PowerVim的使用体验，看起来很酷吧！注意这些操作都不用鼠标的，一波键盘控制流！所以我平时写代码是不碰鼠标的！
 
-![](https://code-thinking.cdn.bcebos.com/gifs/vim_overview.gif)
+![]( /gifs/vim_overview.gif)
 
 ## 安装
 

@@ -41,7 +41,7 @@ abcdefg"和数字2，该函数将返回左旋转两位得到的结果"cdefgab"�
 
 如图：
 
-<img src='https://code-thinking.cdn.bcebos.com/pics/剑指Offer58-II.左旋转字符串.png' width=600> </img></div>
+<img src=' /pics/剑指Offer58-II.左旋转字符串.png' width=600> </img></div>
 
 最终得到左旋2个单元的字符串：cdefgab
 

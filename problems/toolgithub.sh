@@ -34,10 +34,10 @@ do
 
     # 添加结尾 
 
-    echo '<p align="center">' >> $i
-    echo '<a href="https://programmercarl.com/other/kstar.html" target="_blank">' >> $i
-    echo '  <img src="../pics/网站星球宣传海报.jpg" width="1000"/>' >> $i
-    echo '</a>' >> $i 
+#    echo '<p align="center">' >> $i
+#    echo '<a href="https://programmercarl.com/other/kstar.html" target="_blank">' >> $i
+#    echo '  <img src="../pics/网站星球宣传海报.jpg" width="1000"/>' >> $i
+#    echo '</a>' >> $i
 
     # echo '-----------------------' >> $i
 

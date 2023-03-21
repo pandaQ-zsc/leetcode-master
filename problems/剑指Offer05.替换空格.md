@@ -1,14 +1,12 @@
-
-
 # 题目：剑指Offer 05.替换空格
 
 [力扣题目链接](https://leetcode.cn/problems/ti-huan-kong-ge-lcof/)
 
 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
 
-示例 1： 
+示例 1：
 输入：s = "We are happy."    
-输出："We%20are%20happy."     
+输出："We%20are%20happy."
 
 # 思路
 
@@ -113,10 +111,10 @@ for (int i = 0; i < a.size(); i++) {
 
 所以想处理字符串，我们还是会定义一个string类型。
 
-
 ## 其他语言版本
 
 C：
+
 ```C
 char* replaceSpace(char* s){
     //统计空格数量
@@ -147,67 +145,67 @@ char* replaceSpace(char* s){
 }
 ```
 
-
 Java：
+
 ```Java
 //使用一个新的对象，复制 str，复制的过程对其判断，是空格则替换，否则直接复制，类似于数组复制
-public static String replaceSpace(String s) {
-        if (s == null) {
-            return null;
+public static String replaceSpace(String s){
+        if(s==null){
+        return null;
         }
         //选用 StringBuilder 单线程使用，比较快，选不选都行
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb=new StringBuilder();
         //使用 sb 逐个复制 s ，碰到空格则替换，否则直接复制
-        for (int i = 0; i < s.length(); i++) {
-            //s.charAt(i) 为 char 类型，为了比较需要将其转为和 " " 相同的字符串类型
-            //if (" ".equals(String.valueOf(s.charAt(i)))){}
-            if (s.charAt(i) == ' ') {
-                sb.append("%20");
-            } else {
-                sb.append(s.charAt(i));
-            }
+        for(int i=0;i<s.length();i++){
+        //s.charAt(i) 为 char 类型，为了比较需要将其转为和 " " 相同的字符串类型
+        //if (" ".equals(String.valueOf(s.charAt(i)))){}
+        if(s.charAt(i)==' '){
+        sb.append("%20");
+        }else{
+        sb.append(s.charAt(i));
+        }
         }
         return sb.toString();
-    }
+        }
 
 //方式二：双指针法
-public String replaceSpace(String s) {
-    if(s == null || s.length() == 0){
+public String replaceSpace(String s){
+        if(s==null||s.length()==0){
         return s;
-    }
-    //扩充空间，空格数量2倍
-    StringBuilder str = new StringBuilder();
-    for (int i = 0; i < s.length(); i++) {
-        if(s.charAt(i) == ' '){
-            str.append("  ");
         }
-    }
-    //若是没有空格直接返回
-    if(str.length() == 0){
+        //扩充空间，空格数量2倍
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<s.length();i++){
+        if(s.charAt(i)==' '){
+        str.append("  ");
+        }
+        }
+        //若是没有空格直接返回
+        if(str.length()==0){
         return s;
-    }
-    //有空格情况 定义两个指针
-    int left = s.length() - 1;//左指针：指向原始字符串最后一个位置
-    s += str.toString();
-    int right = s.length()-1;//右指针：指向扩展字符串的最后一个位置
-    char[] chars = s.toCharArray();
-    while(left>=0){
-        if(chars[left] == ' '){
-            chars[right--] = '0';
-            chars[right--] = '2';
-            chars[right] = '%';
+        }
+        //有空格情况 定义两个指针
+        int left=s.length()-1;//左指针：指向原始字符串最后一个位置
+        s+=str.toString();
+        int right=s.length()-1;//右指针：指向扩展字符串的最后一个位置
+        char[]chars=s.toCharArray();
+        while(left>=0){
+        if(chars[left]==' '){
+        chars[right--]='0';
+        chars[right--]='2';
+        chars[right]='%';
         }else{
-            chars[right] = chars[left];
+        chars[right]=chars[left];
         }
         left--;
         right--;
-    }
-    return new String(chars);
-}
+        }
+        return new String(chars);
+        }
 ```
 
-
 Go：
+
 ```go
 // 遍历添加
 func replaceSpace(s string) string {
@@ -257,10 +255,8 @@ func replaceSpace(s string) string {
 }
 ```
 
-
-
-
 python：
+
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
@@ -309,35 +305,35 @@ javaScript:
  * @param {string} s
  * @return {string}
  */
- var replaceSpace = function(s) {
-   // 字符串转为数组
-  const strArr = Array.from(s);
-  let count = 0;
+var replaceSpace = function (s) {
+        // 字符串转为数组
+        const strArr = Array.from(s);
+        let count = 0;
 
-  // 计算空格数量
-  for(let i = 0; i < strArr.length; i++) {
-    if (strArr[i] === ' ') {
-      count++;
-    }
-  }
+        // 计算空格数量
+        for (let i = 0; i < strArr.length; i++) {
+            if (strArr[i] === ' ') {
+                count++;
+            }
+        }
 
-  let left = strArr.length - 1;
-  let right = strArr.length + count * 2 - 1;
+        let left = strArr.length - 1;
+        let right = strArr.length + count * 2 - 1;
 
-  while(left >= 0) {
-    if (strArr[left] === ' ') {
-      strArr[right--] = '0';
-      strArr[right--] = '2';
-      strArr[right--] = '%';
-      left--;
-    } else {
-      strArr[right--] = strArr[left--];
-    }
-  }
+        while (left >= 0) {
+            if (strArr[left] === ' ') {
+                strArr[right--] = '0';
+                strArr[right--] = '2';
+                strArr[right--] = '%';
+                left--;
+            } else {
+                strArr[right--] = strArr[left--];
+            }
+        }
 
-  // 数组转字符串
-  return strArr.join('');
-};
+        // 数组转字符串
+        return strArr.join('');
+    };
 ```
 
 TypeScript：
@@ -411,6 +407,7 @@ func replaceSpace(_ s: String) -> String {
 Scala:
 
 方式一: 双指针
+
 ```scala
 object Solution {
   def replaceSpace(s: String): String = {
@@ -437,7 +434,9 @@ object Solution {
   }
 }
 ```
+
 方式二: 使用一个集合，遇到空格就添加%20
+
 ```scala
 object Solution {
   import scala.collection.mutable.ListBuffer
@@ -456,7 +455,9 @@ object Solution {
   }
 }
 ```
+
 方式三: 使用map
+
 ```scala
 object Solution {
   def replaceSpace(s: String): String = {
@@ -465,8 +466,8 @@ object Solution {
   }
 ```
 
-
 PHP：
+
 ```php
 function replaceSpace($s){
     $sLen = strlen($s);
@@ -532,8 +533,5 @@ impl Solution {
 }
 ```
 
-
 <p align="center">
-<a href="https://programmercarl.com/other/kstar.html" target="_blank">
-  <img src="../pics/网站星球宣传海报.jpg" width="1000"/>
-</a>
+
